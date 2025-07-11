@@ -86,7 +86,7 @@ export function VideoList({ videos }: VideoListProps) {
         return;
       }
 
-      const presignedUrl = await defaultAxios.get(`/v1/videos/${videoId}/download/zip`, {
+      const presignedUrl = await defaultAxios.get(`/v1/videos/${videoId}/presigned/zip`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
