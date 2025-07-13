@@ -28,7 +28,7 @@ export function UploadVideoDialog({ isOpen, onOpenChange, onUploadSuccess }: Upl
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
-  const baseURL = "https://uaxin4s2g9.execute-api.us-west-2.amazonaws.com/admin-api"
+  const baseURL = "https://699vtecaf8.execute-api.us-west-2.amazonaws.com/admin-api"
   const defaultAxios = axios.create({
     baseURL: baseURL,
     headers: {

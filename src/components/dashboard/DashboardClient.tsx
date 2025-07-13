@@ -16,7 +16,7 @@ export function DashboardClient() {
   const [videos, setVideos] = useState<Video[]>(initialVideos);
   const [isUploadDialogOpen, setUploadDialogOpen] = useState(false);
 
-  const baseURL = "https://uaxin4s2g9.execute-api.us-west-2.amazonaws.com/admin-api"
+  const baseURL = "https://699vtecaf8.execute-api.us-west-2.amazonaws.com/admin-api"
   const defaultAxios = axios.create({
     baseURL: baseURL,
     headers: {
@@ -25,6 +25,7 @@ export function DashboardClient() {
   })
 
   useEffect(() => {
+    console.log("Carregando vídeos...");
     // Simula a recuperação de vídeos do servidor
     const fetchVideos = async () => {
       // Aqui você pode fazer uma chamada real para a API

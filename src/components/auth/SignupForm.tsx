@@ -33,7 +33,7 @@ export function SignupForm() {
   const router = useRouter();
   const { toast } = useToast();
 
-  const baseURL = "https://uaxin4s2g9.execute-api.us-west-2.amazonaws.com/admin-api"
+  const baseURL = "https://699vtecaf8.execute-api.us-west-2.amazonaws.com/admin-api"
   const defaultAxios = axios.create({
     baseURL: baseURL,
     headers: {
@@ -55,6 +55,11 @@ export function SignupForm() {
     const { email, password } = values;
     try {
       await defaultAxios.post("/v1/users/signup", { email, password });
+      const loginResult = await defaultAxios.post("/v1/users/login", { email, password });
+      const token = loginResult.data.token;
+      const result = await defaultAxios.post("/v1/users/validate-token", { token });
+      const data = result.data;
+      await defaultAxios.post("/v1/users", { clientId: data.payload.username, name: 'default' });
       toast({
           title: "Cadastro realizado com sucesso!",
           description: "Você será redirecionado para fazer o login.",
